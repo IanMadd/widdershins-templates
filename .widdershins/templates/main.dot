@@ -21,9 +21,9 @@ Base URLs:
 {{~}}
 {{?}}
 
-{{? data.api.info && data.api.info.termsOfService}}<a href="{{=data.api.info.termsOfService}}">Terms of service</a>{{?}}
-{{? data.api.info && data.api.info.contact}}{{? data.api.info.contact.email}}Email: <a href="mailto:{{=data.api.info.contact.email}}">{{=data.api.info.contact.name || 'Support'}}</a> {{?}}{{? data.api.info.contact.url}}Web: <a href="{{=data.api.info.contact.url}}">{{= data.api.info.contact.name || 'Support'}}</a> {{?}}{{?}}
-{{? data.api.info && data.api.info.license}}{{? data.api.info.license.url}}License: <a href="{{=data.api.info.license.url}}">{{=data.api.info.license.name}}</a>{{??}} License: {{=data.api.info.license.name}}{{?}}{{?}}
+{{? data.api.info && data.api.info.termsOfService}}[Terms of service]({{=data.api.info.termsOfService}}){{?}}
+{{? data.api.info && data.api.info.contact}}{{? data.api.info.contact.email}}Email: [{{=data.api.info.contact.email}}]({{=data.api.info.contact.email}}) {{?}}{{? data.api.info.contact.url}}Web: [{{= data.api.info.contact.name || 'Support'}}]({{=data.api.info.contact.url}}) {{?}}{{?}}
+{{? data.api.info && data.api.info.license}}{{? data.api.info.license.url}}License: [{{=data.api.info.license.name}}]({{=data.api.info.license.url}}) {{??}} License: {{=data.api.info.license.name}}{{?}}{{?}}
 {{= data.tags.endSection }}
 
 {{? data.api.components && data.api.components.securitySchemes }}
@@ -40,7 +40,7 @@ Base URLs:
 {{? data.resource.description }}{{= data.resource.description}}{{?}}
 
 {{? data.resource.externalDocs}}
-<a href="{{=data.resource.externalDocs.url}}">{{=data.resource.externalDocs.description||'External documentation'}}</a>
+[{{=data.resource.externalDocs.description||'External documentation'}}]({{=data.resource.externalDocs.url}})
 {{?}}
 
 {{ for (var m in data.resource.methods) { }}
@@ -66,10 +66,6 @@ Base URLs:
 {{= data.tags.section }}
 ## {{=s}}
 {{ /* backwards compatibility */ }}
-<a id="schema{{=s.toLowerCase()}}"></a>
-<a id="schema_{{=s}}"></a>
-<a id="tocS{{=s.toLowerCase()}}"></a>
-<a id="tocs{{=s.toLowerCase()}}"></a>
 
 {{? data.options.yaml }}
 ```yaml
@@ -96,7 +92,7 @@ Base URLs:
 {{~ blocks :block}}
 {{? block.title }}{{= block.title}}{{= '\n\n'}}{{?}}
 {{? block.externalDocs}}
-<a href="{{=block.externalDocs.url}}">{{=block.externalDocs.description||'External documentation'}}</a>
+[{{=block.externalDocs.description||'External documentation'}}]({{=block.externalDocs.url}})
 {{?}}
 
 {{? block===blocks[0] }}

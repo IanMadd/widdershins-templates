@@ -3,7 +3,7 @@
 ## {{= data.operationUniqueName}}
 
 {{? data.operation.operationId}}
-<a id="opId{{=data.operation.operationId}}"></a>
+
 {{?}}
 
 {{ data.methodUpper = data.method.verb.toUpperCase(); }}
