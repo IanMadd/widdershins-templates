@@ -2,6 +2,10 @@
 
 {{? data.api.info && data.api.info.description}}{{=data.api.info.description}}{{?}}
 
+{{? data.api.info && data.api.info.version}}
+API version: {{=data.api.info.version}}
+{{?}}
+
 {{? data.api.servers }}
 Base URLs:
 {{~data.api.servers :s}}
